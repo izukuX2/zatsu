@@ -14,6 +14,10 @@ class ReaderMenuProvider(
 		menuInflater.inflate(R.menu.opt_reader, menu)
 	}
 
+	override fun onPrepareMenu(menu: Menu) {
+		// No-op
+	}
+
 	override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
 		return when (menuItem.itemId) {
 			R.id.action_info -> {

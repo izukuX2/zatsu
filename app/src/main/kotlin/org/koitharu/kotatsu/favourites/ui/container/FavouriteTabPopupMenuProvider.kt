@@ -26,6 +26,10 @@ class FavouriteTabPopupMenuProvider(
 		menuInflater.inflate(menuResId, menu)
 	}
 
+	override fun onPrepareMenu(menu: Menu) {
+		// No-op
+	}
+
 	override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
 		when (menuItem.itemId) {
 			R.id.action_hide -> viewModel.hide(categoryId)

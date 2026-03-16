@@ -15,6 +15,10 @@ class FavouritesContainerMenuProvider(
 		menuInflater.inflate(R.menu.opt_favourites_container, menu)
 	}
 
+	override fun onPrepareMenu(menu: Menu) {
+		// No-op
+	}
+
 	override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
 		when (menuItem.itemId) {
 			R.id.action_manage -> {

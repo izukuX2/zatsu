@@ -15,6 +15,10 @@ class ExploreMenuProvider(
 		menuInflater.inflate(R.menu.opt_explore, menu)
 	}
 
+	override fun onPrepareMenu(menu: Menu) {
+		// No-op
+	}
+
 	override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
 		return when (menuItem.itemId) {
 			R.id.action_manage -> {

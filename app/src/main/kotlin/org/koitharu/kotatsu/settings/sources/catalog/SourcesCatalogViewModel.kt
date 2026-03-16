@@ -46,7 +46,7 @@ class SourcesCatalogViewModel @Inject constructor(
 	val appliedFilter = MutableStateFlow(
 		SourcesCatalogFilter(
 			types = emptySet(),
-			locale = Locale.getDefault().language.takeIf { it in locales },
+			locale = "ar",
 			isNewOnly = false,
 		),
 	)
@@ -76,7 +76,7 @@ class SourcesCatalogViewModel @Inject constructor(
 	}
 
 	fun setLocale(value: String?) {
-		appliedFilter.value = appliedFilter.value.copy(locale = value)
+		appliedFilter.value = appliedFilter.value.copy(locale = "ar")
 	}
 
 	fun addSource(source: MangaSource) {
@@ -138,10 +138,6 @@ class SourcesCatalogViewModel @Inject constructor(
 	@WorkerThread
 	private fun getContentTypes(isNsfwDisabled: Boolean): List<ContentType> {
 		val result = repository.allMangaSources.mapSortedByCount { it.contentType }
-		return if (isNsfwDisabled) {
-			result.filterNot { it == ContentType.HENTAI }
-		} else {
-			result
-		}
+		return result.filterNot { it == ContentType.HENTAI }
 	}
 }

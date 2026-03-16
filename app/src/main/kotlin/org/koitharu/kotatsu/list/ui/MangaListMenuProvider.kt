@@ -21,6 +21,10 @@ class MangaListMenuProvider(
 		menuInflater.inflate(R.menu.opt_list, menu)
 	}
 
+	override fun onPrepareMenu(menu: Menu) {
+		// No-op
+	}
+
 	override fun onMenuItemSelected(menuItem: MenuItem): Boolean = when (menuItem.itemId) {
 		R.id.action_list_mode -> {
 			val section: ListConfigSection = when (fragment) {

@@ -51,7 +51,7 @@ class WelcomeSheet : BaseAdaptiveSheet<SheetWelcomeBinding>(), ChipsView.OnChipC
 	override fun onViewBindingCreated(binding: SheetWelcomeBinding, savedInstanceState: Bundle?) {
 		super.onViewBindingCreated(binding, savedInstanceState)
 		binding.textViewWelcomeTitle.isGone = resources.getBoolean(R.bool.is_tablet)
-		binding.chipsLocales.onChipClickListener = this
+		binding.chipsLocales.isGone = true
 		binding.chipsType.onChipClickListener = this
 		binding.chipBackup.setOnClickListener(this)
 		binding.chipSync.setOnClickListener(this)

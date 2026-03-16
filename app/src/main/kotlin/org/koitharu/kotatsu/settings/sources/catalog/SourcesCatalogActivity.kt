@@ -89,7 +89,6 @@ class SourcesCatalogActivity : BaseActivity<ActivitySourcesCatalogBinding>(),
 		when (data) {
 			is ContentType -> viewModel.setContentType(data, !chip.isChecked)
 			is Boolean -> viewModel.setNewOnly(!chip.isChecked)
-			else -> showLocalesMenu(chip)
 		}
 	}
 
@@ -118,12 +117,7 @@ class SourcesCatalogActivity : BaseActivity<ActivitySourcesCatalogBinding>(),
 		hasNewSources: Boolean,
 		contentTypes: List<ContentType>,
 	) {
-		val chips = ArrayList<ChipModel>(contentTypes.size + 2)
-		chips += ChipModel(
-			title = appliedFilter.locale?.toLocale().getDisplayName(this),
-			icon = R.drawable.ic_language,
-			isDropdown = true,
-		)
+		val chips = ArrayList<ChipModel>(contentTypes.size + 1)
 		if (hasNewSources) {
 			chips += ChipModel(
 				title = getString(R.string._new),

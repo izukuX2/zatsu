@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-		applicationId 'io.github.kotatsuredo.kotatsu'
+		applicationId 'orh.izukux.zatsu'
 		minSdk = 23
 		targetSdk = 36
 		versionCode = 2010

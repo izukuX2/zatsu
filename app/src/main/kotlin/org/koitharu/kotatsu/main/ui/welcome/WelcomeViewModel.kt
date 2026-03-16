@@ -1,7 +1,6 @@
 package org.koitharu.kotatsu.main.ui.welcome
 
 import android.content.Context
-import androidx.core.os.ConfigurationCompat
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -11,7 +10,6 @@ import org.koitharu.kotatsu.core.ui.BaseViewModel
 import org.koitharu.kotatsu.core.util.LocaleComparator
 import org.koitharu.kotatsu.core.util.ext.mapSortedByCount
 import org.koitharu.kotatsu.core.util.ext.sortedWithSafe
-import org.koitharu.kotatsu.core.util.ext.toList
 import org.koitharu.kotatsu.core.util.ext.toLocale
 import org.koitharu.kotatsu.explore.data.MangaSourcesRepository
 import org.koitharu.kotatsu.filter.ui.model.FilterProperty
@@ -53,17 +51,16 @@ class WelcomeViewModel @Inject constructor(
 
 	init {
 		updateJob = launchJob(Dispatchers.Default) {
-			val contentTypes = allSources.mapSortedByCount { it.contentType }
+			val contentTypes = allSources.mapSortedByCount { it.contentType }.filterNot { it == ContentType.HENTAI }
 			types.value = types.value.copy(
 				availableItems = contentTypes,
 				isLoading = false,
 			)
-			val languages = localesGroups.keys.associateBy { x -> x.language }
 			val selectedLocales = HashSet<Locale>(2)
-			ConfigurationCompat.getLocales(context.resources.configuration).toList()
-				.firstNotNullOfOrNull { lc -> languages[lc.language] }
-				?.let { selectedLocales += it }
-			selectedLocales += Locale.ROOT
+			val arabicLocale = Locale("ar")
+			if (arabicLocale in localesGroups.keys) {
+				selectedLocales.add(arabicLocale)
+			}
 			locales.value = locales.value.copy(
 				availableItems = localesGroups.keys.sortedWithSafe(LocaleComparator()),
 				selectedItems = selectedLocales,

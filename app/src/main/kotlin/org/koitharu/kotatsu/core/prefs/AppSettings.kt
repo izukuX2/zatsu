@@ -118,8 +118,8 @@ class AppSettings @Inject constructor(@ApplicationContext context: Context) {
 
 
 	var isNsfwContentDisabled: Boolean
-		get() = prefs.getBoolean(KEY_DISABLE_NSFW, false)
-		set(value) = prefs.edit { putBoolean(KEY_DISABLE_NSFW, value) }
+		get() = true
+		set(value) = prefs.edit { putBoolean(KEY_DISABLE_NSFW, true) }
 
 	var appLocales: LocaleListCompat
 		get() {
@@ -192,7 +192,7 @@ class AppSettings @Inject constructor(@ApplicationContext context: Context) {
 		get() = prefs.getBoolean(KEY_TRACKER_NOTIFICATIONS, true)
 
 	val isTrackerNsfwDisabled: Boolean
-		get() = prefs.getBoolean(KEY_TRACKER_NO_NSFW, false)
+		get() = prefs.getBoolean(KEY_TRACKER_NO_NSFW, true)
 
 	val trackerDownloadStrategy: TrackerDownloadStrategy
 		get() = prefs.getEnumValue(KEY_TRACKER_DOWNLOAD, TrackerDownloadStrategy.DISABLED)
@@ -335,8 +335,8 @@ class AppSettings @Inject constructor(@ApplicationContext context: Context) {
 		set(value) = prefs.edit { putInt(KEY_SOURCES_VERSION, value) }
 
 	var isAllSourcesEnabled: Boolean
-		get() = prefs.getBoolean(KEY_SOURCES_ENABLED_ALL, false)
-		set(value) = prefs.edit { putBoolean(KEY_SOURCES_ENABLED_ALL, value) }
+		get() = false
+		set(value) = prefs.edit { putBoolean(KEY_SOURCES_ENABLED_ALL, false) }
 
 	val isPagesNumbersEnabled: Boolean
 		get() = prefs.getBoolean(KEY_PAGES_NUMBERS, false)
@@ -388,7 +388,7 @@ class AppSettings @Inject constructor(@ApplicationContext context: Context) {
 		get() = prefs.getBoolean(KEY_SUGGESTIONS_WIFI_ONLY, false)
 
 	val isSuggestionsExcludeNsfw: Boolean
-		get() = prefs.getBoolean(KEY_SUGGESTIONS_EXCLUDE_NSFW, false)
+		get() = prefs.getBoolean(KEY_SUGGESTIONS_EXCLUDE_NSFW, true)
 
 	val isSuggestionsIncludeDisabledSources: Boolean
 		get() = prefs.getBoolean(KEY_SUGGESTIONS_DISABLED_SOURCES, false)
@@ -539,7 +539,7 @@ class AppSettings @Inject constructor(@ApplicationContext context: Context) {
 		get() = prefs.getBoolean(KEY_DISCORD_RPC, false)
 
 	val isDiscordRpcSkipNsfw: Boolean
-		get() = prefs.getBoolean(KEY_DISCORD_RPC_SKIP_NSFW, false)
+		get() = prefs.getBoolean(KEY_DISCORD_RPC_SKIP_NSFW, true)
 
 	var discordToken: String?
 		get() = prefs.getString(KEY_DISCORD_TOKEN, null)?.trim()?.nullIfEmpty()
