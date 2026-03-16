@@ -130,9 +130,15 @@ dependencies {
 		parsersVersion = System.getProperty('parsersVersionOverride')
 	}
 	//noinspection UseTomlInstead
+	// Para JitPack (producción):
 	implementation("com.github.izukuX2:zatsu-parsers:$parsersVersion") {
-		exclude group: 'org.json', module: 'json'
+	    exclude group: 'org.json', module: 'json'
 	}
+	
+	// Para desarrollo local Maven Local:
+	// implementation("org.koitharu:kotatsu-parsers:1.0") {
+	//     exclude group: 'org.json', module: 'json'
+	// }
 
 	coreLibraryDesugaring libs.desugar.jdk.libs
 	implementation libs.kotlin.stdlib

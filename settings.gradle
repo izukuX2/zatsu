@@ -22,6 +22,7 @@ dependencyResolutionManagement {
 	repositories {
 		google()
 		mavenCentral()
+		mavenLocal()
 		maven {
 			url 'https://jitpack.io'
 		}
@@ -29,4 +30,10 @@ dependencyResolutionManagement {
 }
 
 include ':app'
+
+// Para desarrollo local (sin JitPack):
+// 1. Copiar la carpeta zatsu-parsers a la raíz del proyecto
+// 2. Descomentar la siguiente línea:
+// include ':zatsu-parsers'
+
 rootProject.name = "Zatsu"
