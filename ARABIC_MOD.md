@@ -30,15 +30,31 @@
 
 ### 8. AppSettings.kt (Additional)
 - Forced `isAllSourcesEnabled` to always return `false` (only Arabic sources)
-  - MangaListMenuProvider.kt
-  - ExploreMenuProvider.kt
-  - FavouriteTabPopupMenuProvider.kt
-  - FavouritesContainerMenuProvider.kt
-  - ReaderMenuProvider.kt
+
+### 9. app/build.gradle
+- Changed parser dependency from `com.github.clquwu:kotatsu-parsers-redo` to `com.github.izukuX2:zatsu-parsers`
+
+### 10. DEVELOPMENT_GUIDE.md (New)
+- Added comprehensive development guide for testing and updating
 
 ---
 
-## How to Revert or Modify
+## Development Workflow
+
+### Quick Testing (Local Module):
+1. Copy `zatsu-parsers` folder to project root
+2. Uncomment `include ':zatsu-parsers'` in settings.gradle
+3. Uncomment `implementation(project(':zatsu-parsers'))` in app/build.gradle
+4. Run `./gradlew assembleDebug`
+5. Test immediately!
+
+### Production Release (JitPack):
+1. Make changes in zatsu-parsers
+2. Create GitHub Release with tag
+3. Update `parsers = "v1.x.x"` in gradle/libs.versions.toml
+4. Build and release APK
+
+See `DEVELOPMENT_GUIDE.md` for full details.
 
 ### To allow other languages:
 1. `WelcomeViewModel.kt`: Change `Locale("ar")` to include other locales or add back system locale detection
