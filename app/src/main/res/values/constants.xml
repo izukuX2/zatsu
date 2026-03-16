@@ -2,9 +2,9 @@
 <resources>
 	<string name="url_github" translatable="false">https://github.com/izukuX2/zatsu</string>
 	<string name="url_discord" translatable="false">https://discord.gg/sfPJSQNxfW</string>
-	<string name="url_weblate" translatable="false">https://hosted.weblate.org/engage/zatsu</string>
-	<string name="url_user_manual" translatable="false">https://zatsu.app/manuals/guides/getting-started/</string>
-	<string name="url_error_report" translatable="false">https://github.com/izukuX2/zatsu/issues</string>
+	<string name="url_weblate" translatable="false">https://hosted.weblate.org/engage/kotatsu</string></string>
+	<string name="url_user_manual" translatable="false">https://kotatsu.app/manuals/guides/getting-started/</string>
+	<string name="url_error_report" translatable="false">https://bugs.kotatsu.app/report</string></string>
 	<string name="account_type_sync" translatable="false">org.zatsu.sync</string>
 	<string name="github_updates_repo" translatable="false">izukuX2/zatsu</string>
 	<string name="shikimori_clientId" translatable="false">Mw6F0tPEOgyV7F9U9Twg50Q8SndMY7hzIOfXg0AX_XU</string>
@@ -18,7 +18,7 @@
 	<string name="acra_password" translatable="false">kgpuhoNJpSsQDCwu</string>
     <string name="sync_authority_favourites">orh.izukux.zatsu.favourites</string>
     <string name="sync_authority_history">orh.izukux.zatsu.history</string>
-	<string name="tg_backup_bot_name" translatable="false">zatsu_backup_bot</string>
+	<string name="tg_backup_bot_name" translatable="false">kotatsu_backup_bot</string>
 	<string name="discord_app_id" translatable="false">1395464028611940393</string>
 	<string name="app_icon_url" translatable="false">https://raw.githubusercontent.com/izukuX2/zatsu/refs/heads/main/metadata/en-US/icon.png</string>
 	<string-array name="values_theme" translatable="false">
